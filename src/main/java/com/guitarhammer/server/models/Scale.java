@@ -1,6 +1,5 @@
 package com.guitarhammer.server.models;
 
-import com.guitarhammer.server.models.fretboards.ChordFret;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,12 +12,8 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Chord {
+public class Scale {
     @Id
     @GeneratedValue
     Long id;
-
-    String name;
-
-    ChordFret tab;
 }

@@ -39,7 +39,14 @@ public class ServerApplication {
             ChordRepository chordRepository
     ) throws Exception {
         return (String[] args) -> {
-            System.out.println("running ...");
+
+            String[] letters = {"A", "B", "C", "D", "E", "F", "G"};
+
+            // Load Power Chords
+            for (String currLetter : letters) {
+                String chordName = currLetter.concat("-5");
+                System.out.println(chordName);
+            }
 
             Chord A = new Chord();
             chordRepository.save(A);
