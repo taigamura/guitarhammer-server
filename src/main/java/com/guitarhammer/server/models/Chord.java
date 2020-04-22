@@ -19,6 +19,8 @@ public class Chord {
 
     String name;
 
+    Integer root;
+
     ChordFret tab;
 
     @ManyToOne

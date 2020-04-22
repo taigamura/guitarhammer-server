@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
-import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor

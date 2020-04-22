@@ -17,17 +17,18 @@ public class Manager {
                 .boxed()
                 .collect(Collectors.toList());
         List<Integer> strings = new ArrayList<>();
-        strings.set(0, cf.getFirstString());
-        strings.set(1, cf.getSecondString());
-        strings.set(2, cf.getThirdString());
-        strings.set(3, cf.getFourthString());
-        strings.set(4, cf.getFifthString());
-        strings.set(5, cf.getSixthString());
+        strings.add(0, cf.getFirstString());
+        strings.add(1, cf.getSecondString());
+        strings.add(2, cf.getThirdString());
+        strings.add(3, cf.getFourthString());
+        strings.add(4, cf.getFifthString());
+        strings.add(5, cf.getSixthString());
         List<Integer> filtered = strings.stream()
-                .filter(n -> (n > 0))
+                .filter(n -> (n >= 0))
                 .sorted()
                 .collect(Collectors.toList());
         return possibleRoots.stream()
+                .filter(n -> (n <= filtered.get(0)))
                 .min(Comparator.comparingInt(i -> Math.abs(i - filtered.get(0))))
                 .orElseThrow(() -> new NotFoundException("Root not found"));
     }
