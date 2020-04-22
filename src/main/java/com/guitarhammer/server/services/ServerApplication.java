@@ -85,6 +85,7 @@ public class ServerApplication {
                         cf = new ChordFret(-1, -1, -1, -1, 5, 3);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setChordGroup(currChordGroup);
                 currChord.setRoot(Manager.getRoot(cf));
                 chordRepository.save(currChord);
@@ -121,6 +122,7 @@ public class ServerApplication {
                         cf = new ChordFret(-1, -1, -1, 12, 10, -1);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setChordGroup(currChordGroup);
                 currChord.setRoot(Manager.getRoot(cf));
                 chordRepository.save(currChord);
@@ -157,6 +159,7 @@ public class ServerApplication {
                         cf = new ChordFret(-1, -1, -1, 5, 5, 3);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setChordGroup(currChordGroup);
                 currChord.setRoot(Manager.getRoot(cf));
                 chordRepository.save(currChord);
@@ -193,6 +196,7 @@ public class ServerApplication {
                         cf = new ChordFret(-1, -1, 12, 12, 10, -1);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setRoot(Manager.getRoot(cf));
                 currChord.setChordGroup(currChordGroup);
                 chordRepository.save(currChord);
