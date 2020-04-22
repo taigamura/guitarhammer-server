@@ -1,5 +1,6 @@
 package com.guitarhammer.server.services;
 
+import com.guitarhammer.server.controllers.Manager;
 import com.guitarhammer.server.models.Chord;
 import com.guitarhammer.server.models.ChordGroup;
 import com.guitarhammer.server.models.fretboards.ChordFret;
@@ -60,30 +61,33 @@ public class ServerApplication {
 
                 currChord.setName(currLetter.concat("-5"));
 
+                ChordFret cf = null;
                 switch (currLetter) {
                     case "A":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 7, 5));
+                        cf = new ChordFret(-1, -1, -1, -1, 7, 5);
                         break;
                     case "B":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 9, 7));
+                        cf = new ChordFret(-1, -1, -1, -1, 9, 7);
                         break;
                     case "C":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 10, 8));
+                        cf = new ChordFret(-1, -1, -1, -1, 10, 8);
                         break;
                     case "D":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 12, 10));
+                        cf = new ChordFret(-1, -1, -1, -1, 12, 10);
                         break;
                     case "E":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 2, 0));
+                        cf = new ChordFret(-1, -1, -1, -1, 2, 0);
                         break;
                     case "F":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 3, 1));
+                        cf = new ChordFret(-1, -1, -1, -1, 3, 1);
                         break;
                     case "G":
-                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 5, 3));
+                        cf = new ChordFret(-1, -1, -1, -1, 5, 3);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setChordGroup(currChordGroup);
+                currChord.setRoot(Manager.getRoot(cf));
                 chordRepository.save(currChord);
             }
 
@@ -94,30 +98,33 @@ public class ServerApplication {
 
                 currChord.setName(currLetter.concat("-5"));
 
+                ChordFret cf = null;
                 switch (currLetter) {
                     case "A":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 2, 0, -1));
+                        cf = new ChordFret(-1, -1, -1, 2, 0, -1);
                         break;
                     case "B":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 4, 2, -1));
+                        cf = new ChordFret(-1, -1, -1, 4, 2, -1);
                         break;
                     case "C":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 5, 3, -1));
+                        cf = new ChordFret(-1, -1, -1, 5, 3, -1);
                         break;
                     case "D":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 7, 5, -1));
+                        cf = new ChordFret(-1, -1, -1, 7, 5, -1);
                         break;
                     case "E":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 9, 7, -1));
+                        cf = new ChordFret(-1, -1, -1, 9, 7, -1);
                         break;
                     case "F":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 10, 8, -1));
+                        cf = new ChordFret(-1, -1, -1, 10, 8, -1);
                         break;
                     case "G":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 12, 10, -1));
+                        cf = new ChordFret(-1, -1, -1, 12, 10, -1);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setChordGroup(currChordGroup);
+                currChord.setRoot(Manager.getRoot(cf));
                 chordRepository.save(currChord);
             }
 
@@ -128,30 +135,33 @@ public class ServerApplication {
 
                 currChord.setName(currLetter.concat("-5"));
 
+                ChordFret cf = null;
                 switch (currLetter) {
                     case "A":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 7, 7, 5));
+                        cf = new ChordFret(-1, -1, -1, 7, 7, 5);
                         break;
                     case "B":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 9, 9, 7));
+                        cf = new ChordFret(-1, -1, -1, 9, 9, 7);
                         break;
                     case "C":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 10, 10, 8));
+                        cf = new ChordFret(-1, -1, -1, 10, 10, 8);
                         break;
                     case "D":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 12, 12, 10));
+                        cf = new ChordFret(-1, -1, -1, 12, 12, 10);
                         break;
                     case "E":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 2, 2, 0));
+                        cf = new ChordFret(-1, -1, -1, 2, 2, 0);
                         break;
                     case "F":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 3, 3, 1));
+                        cf = new ChordFret(-1, -1, -1, 3, 3, 1);
                         break;
                     case "G":
-                        currChord.setTab(new ChordFret(-1, -1, -1, 5, 5, 3));
+                        cf = new ChordFret(-1, -1, -1, 5, 5, 3);
                         break;
                 }
+                currChord.setTab(cf);
                 currChord.setChordGroup(currChordGroup);
+                currChord.setRoot(Manager.getRoot(cf));
                 chordRepository.save(currChord);
             }
 
@@ -162,29 +172,32 @@ public class ServerApplication {
 
                 currChord.setName(currLetter.concat("-5"));
 
+                ChordFret cf = null;
                 switch (currLetter) {
                     case "A":
-                        currChord.setTab(new ChordFret(-1, -1, 2, 2, 0, -1));
+                        cf = new ChordFret(-1, -1, 2, 2, 0, -1);
                         break;
                     case "B":
-                        currChord.setTab(new ChordFret(-1, -1, 4, 4, 2, -1));
+                        cf = new ChordFret(-1, -1, 4, 4, 2, -1);
                         break;
                     case "C":
-                        currChord.setTab(new ChordFret(-1, -1, 5, 5, 3, -1));
+                        cf = new ChordFret(-1, -1, 5, 5, 3, -1);
                         break;
                     case "D":
-                        currChord.setTab(new ChordFret(-1, -1, 7, 7, 5, -1));
+                        cf = new ChordFret(-1, -1, 7, 7, 5, -1);
                         break;
                     case "E":
-                        currChord.setTab(new ChordFret(-1, -1, 9, 9, 7, -1));
+                        cf = new ChordFret(-1, -1, 9, 9, 7, -1);
                         break;
                     case "F":
-                        currChord.setTab(new ChordFret(-1, -1, 10, 10, 8, -1));
+                        cf = new ChordFret(-1, -1, 10, 10, 8, -1);
                         break;
                     case "G":
-                        currChord.setTab(new ChordFret(-1, -1, 12, 12, 10, -1));
+                        cf = new ChordFret(-1, -1, 12, 12, 10, -1);
                         break;
                 }
+                currChord.setTab(cf);
+                currChord.setRoot(Manager.getRoot(cf));
                 currChord.setChordGroup(currChordGroup);
                 chordRepository.save(currChord);
             }
