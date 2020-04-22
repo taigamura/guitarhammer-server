@@ -6,14 +6,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
 public class ChordFret {
-    Integer root;
 
-    String[][] tab = new String[6][4];
+    Integer firstString;
+
+    Integer secondString;
+
+    Integer thirdString;
+
+    Integer fourthString;
+
+    Integer fifthString;
+
+    Integer sixthString;
 }
