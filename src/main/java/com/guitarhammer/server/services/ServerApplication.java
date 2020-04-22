@@ -1,6 +1,9 @@
 package com.guitarhammer.server.services;
 
 import com.guitarhammer.server.models.Chord;
+import com.guitarhammer.server.models.ChordGroup;
+import com.guitarhammer.server.models.fretboards.ChordFret;
+import com.guitarhammer.server.repositories.ChordGroupRepository;
 import com.guitarhammer.server.repositories.ChordRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -36,13 +39,155 @@ public class ServerApplication {
     @Bean
     @Transactional
     public CommandLineRunner run(
-            ChordRepository chordRepository
+            ChordRepository chordRepository,
+            ChordGroupRepository chordGroupRepository
     ) throws Exception {
         return (String[] args) -> {
-            System.out.println("running ...");
 
-            Chord A = new Chord();
-            chordRepository.save(A);
+            String[] letters = {"A", "B", "C", "D", "E", "F", "G"};
+
+            // Create Chord Groups
+            for (String currLetter : letters) {
+                ChordGroup currChordGroup = new ChordGroup();
+                currChordGroup.setGroupName(currLetter);
+                chordGroupRepository.save(currChordGroup);
+            }
+
+            // Load Power Chords - Base 6
+            for (String currLetter : letters) {
+                Chord currChord = new Chord();
+                ChordGroup currChordGroup = chordGroupRepository.findByGroupName(currLetter);
+
+                currChord.setName(currLetter.concat("-5"));
+
+                switch (currLetter) {
+                    case "A":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 7, 5));
+                        break;
+                    case "B":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 9, 7));
+                        break;
+                    case "C":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 10, 8));
+                        break;
+                    case "D":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 12, 10));
+                        break;
+                    case "E":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 2, 0));
+                        break;
+                    case "F":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 3, 1));
+                        break;
+                    case "G":
+                        currChord.setTab(new ChordFret(-1, -1, -1, -1, 5, 3));
+                        break;
+                }
+                currChord.setChordGroup(currChordGroup);
+                chordRepository.save(currChord);
+            }
+
+            // Load Power Chords - Base 5
+            for (String currLetter : letters) {
+                Chord currChord = new Chord();
+                ChordGroup currChordGroup = chordGroupRepository.findByGroupName(currLetter);
+
+                currChord.setName(currLetter.concat("-5"));
+
+                switch (currLetter) {
+                    case "A":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 2, 0, -1));
+                        break;
+                    case "B":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 4, 2, -1));
+                        break;
+                    case "C":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 5, 3, -1));
+                        break;
+                    case "D":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 7, 5, -1));
+                        break;
+                    case "E":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 9, 7, -1));
+                        break;
+                    case "F":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 10, 8, -1));
+                        break;
+                    case "G":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 12, 10, -1));
+                        break;
+                }
+                currChord.setChordGroup(currChordGroup);
+                chordRepository.save(currChord);
+            }
+
+            // Load Power Chords - Base 6 - Power
+            for (String currLetter : letters) {
+                Chord currChord = new Chord();
+                ChordGroup currChordGroup = chordGroupRepository.findByGroupName(currLetter);
+
+                currChord.setName(currLetter.concat("-5"));
+
+                switch (currLetter) {
+                    case "A":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 7, 7, 5));
+                        break;
+                    case "B":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 9, 9, 7));
+                        break;
+                    case "C":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 10, 10, 8));
+                        break;
+                    case "D":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 12, 12, 10));
+                        break;
+                    case "E":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 2, 2, 0));
+                        break;
+                    case "F":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 3, 3, 1));
+                        break;
+                    case "G":
+                        currChord.setTab(new ChordFret(-1, -1, -1, 5, 5, 3));
+                        break;
+                }
+                currChord.setChordGroup(currChordGroup);
+                chordRepository.save(currChord);
+            }
+
+            // Load Power Chords - Base 5 - Power
+            for (String currLetter : letters) {
+                Chord currChord = new Chord();
+                ChordGroup currChordGroup = chordGroupRepository.findByGroupName(currLetter);
+
+                currChord.setName(currLetter.concat("-5"));
+
+                switch (currLetter) {
+                    case "A":
+                        currChord.setTab(new ChordFret(-1, -1, 2, 2, 0, -1));
+                        break;
+                    case "B":
+                        currChord.setTab(new ChordFret(-1, -1, 4, 4, 2, -1));
+                        break;
+                    case "C":
+                        currChord.setTab(new ChordFret(-1, -1, 5, 5, 3, -1));
+                        break;
+                    case "D":
+                        currChord.setTab(new ChordFret(-1, -1, 7, 7, 5, -1));
+                        break;
+                    case "E":
+                        currChord.setTab(new ChordFret(-1, -1, 9, 9, 7, -1));
+                        break;
+                    case "F":
+                        currChord.setTab(new ChordFret(-1, -1, 10, 10, 8, -1));
+                        break;
+                    case "G":
+                        currChord.setTab(new ChordFret(-1, -1, 12, 12, 10, -1));
+                        break;
+                }
+                currChord.setChordGroup(currChordGroup);
+                chordRepository.save(currChord);
+            }
         };
     }
 }
