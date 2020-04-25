@@ -1,7 +1,5 @@
 package com.guitarhammer.server.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.guitarhammer.server.models.fretboards.ChordFret;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,14 +15,8 @@ public class Chord {
     @GeneratedValue
     Long id;
 
-    String name;
+    String chordName;
 
-    Integer root;
-
-    ChordFret tab;
-
-    @ManyToOne
-    @JoinColumn(name = "chordGroup_id")
-    @JsonBackReference(value = "chordGroup_chords")
-    ChordGroup chordGroup;
+    @Column(name = "data", length = 1024)
+    String data;
 }
